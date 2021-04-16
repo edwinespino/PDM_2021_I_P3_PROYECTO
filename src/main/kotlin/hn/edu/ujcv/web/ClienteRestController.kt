@@ -4,7 +4,8 @@ import hn.edu.ujcv.business.cliente.IClienteBusiness
 import hn.edu.ujcv.exceptions.BusinessExeptions
 import hn.edu.ujcv.exceptions.NotFoundException
 import hn.edu.ujcv.model.Cliente
-import hn.edu.ujcv.utils.Constants1
+import hn.edu.ujcv.utils.Constants
+
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*
 class ClienteRestController {
     @RestController
 //@RequestMapping("clientes")
-    @RequestMapping(Constants1.URL_BASE_CLIENTES)
+    @RequestMapping(Constants.URL_BASE_CLIENTES)
     class ClienteRestController {
         @Autowired
         val clienteBusiness: IClienteBusiness? = null
@@ -41,7 +42,7 @@ class ClienteRestController {
             return try {
                 clienteBusiness!!.saveCliente(cliente)
                 val responseHeader = HttpHeaders()
-                responseHeader.set("location", Constants1.URL_BASE_CLIENTES + "/" + cliente.id)
+                responseHeader.set("location", Constants.URL_BASE_CLIENTES + "/" + cliente.id)
                 ResponseEntity(cliente,responseHeader, HttpStatus.CREATED)
             }catch (e: BusinessExeptions){
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)

@@ -16,7 +16,7 @@ class EmpleadoRestController  {
 
     @RestController
 //@RequestMapping("personas")
-    @RequestMapping(Constants.URL_BASE_PERSONAS)
+    @RequestMapping(Constants.URL_BASE_EMPLEADO)
     class PersonaRestController {
         @Autowired
         val empleadoBusiness: IEmpleadoBusiness? = null
@@ -53,7 +53,7 @@ class EmpleadoRestController  {
             return try {
                 empleadoBusiness!!.saveEmpleado(empleado)
                 val responseHeader = HttpHeaders()
-                responseHeader.set("location", Constants.URL_BASE_PERSONAS + "/" + empleado.id)
+                responseHeader.set("location", Constants.URL_BASE_CLIENTES + "/" + empleado.id)
                 ResponseEntity(empleado,responseHeader, HttpStatus.CREATED)
             }catch (e:BusinessExeptions){
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
