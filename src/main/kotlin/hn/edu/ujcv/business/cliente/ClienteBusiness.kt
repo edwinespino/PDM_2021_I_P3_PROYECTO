@@ -99,7 +99,7 @@ class ClienteBusiness: IClienteBusiness {
         return opt.get()
     }
 
-    @Throws(BusinessExeptions::class, NotFoundException::class)
+    /*@Throws(BusinessExeptions::class, NotFoundException::class)
     override fun getClienteByNombre(nombreCliente: String): Cliente {
         val opt:Optional<Cliente>
         try {
@@ -113,7 +113,7 @@ class ClienteBusiness: IClienteBusiness {
             throw NotFoundException("No se encontro la persona $nombreCliente")
         }
         return opt.get()
-    }
+    }*/
 
 
 

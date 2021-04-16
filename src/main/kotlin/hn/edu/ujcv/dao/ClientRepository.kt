@@ -9,5 +9,5 @@ import java.util.*
 
 @Repository
 interface ClientRepository:JpaRepository<Cliente,Long>{
-    fun findBYNombre(nombrePersona:String):Optional<Cliente>
+    
 }

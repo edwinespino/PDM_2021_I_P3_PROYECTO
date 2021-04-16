@@ -9,7 +9,7 @@ interface IClienteBusiness {
     fun saveCliente(cliente: Cliente): Cliente
     fun saveClientes(clientes: List<Cliente>):List<Cliente>
     fun removeCliente(idCliente: Long)
-    fun getClienteByNombre(nombreCliente: String): Cliente
+    /*fun getClienteByNombre(nombreCliente: String): Cliente*/
     fun updateCliente(cliente: Cliente): Cliente
 
 
