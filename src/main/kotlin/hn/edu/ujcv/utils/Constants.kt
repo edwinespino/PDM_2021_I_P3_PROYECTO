@@ -2,7 +2,7 @@ package hn.edu.ujcv.utils
 
 
 class Constants {
-    companion object C2 {
+    companion object  {
         private const val URL_API_BASE = "/api"
         private const val URL_API_VERSION = "/v1"
         private const val URL_BASE = URL_API_BASE + URL_API_VERSION
@@ -13,6 +13,7 @@ class Constants {
         const val URL_BASE_INSUMOS= "$URL_BASE/insumos"
         const val URL_BASE_DEPARTAMENTOS= "$URL_BASE/departamentos"
         const val URL_BASE_DETALLEVENTAS= "$URL_BASE/detalleventa"
+        const val URL_BASE_FORMASPAGO= "$URL_BASE/formaspago"
 
 
 
