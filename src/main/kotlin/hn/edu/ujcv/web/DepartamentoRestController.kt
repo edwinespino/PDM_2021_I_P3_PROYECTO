@@ -1,6 +1,7 @@
 package hn.edu.ujcv.web
 
 import hn.edu.ujcv.business.cliente.IClienteBusiness
+import hn.edu.ujcv.business.departamentos.IDepartamentoBusiness
 
 import hn.edu.ujcv.exceptions.BusinessExeptions
 import hn.edu.ujcv.exceptions.NotFoundException
