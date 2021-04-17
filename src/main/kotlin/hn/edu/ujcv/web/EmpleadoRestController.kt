@@ -38,6 +38,7 @@ class EmpleadoRestController  {
                 ResponseEntity(HttpStatus.NOT_FOUND)
             }
         }
+
         @PostMapping("/addEmpleado")
         fun insert(@RequestBody empleado: Empleado): ResponseEntity<Any> {
             return try {
