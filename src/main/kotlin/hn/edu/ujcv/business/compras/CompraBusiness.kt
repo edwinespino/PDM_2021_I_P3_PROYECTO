@@ -3,17 +3,17 @@ package hn.edu.ujcv.business.compras
 import hn.edu.ujcv.dao.CompraRepository
 import hn.edu.ujcv.exceptions.BusinessExeptions
 import hn.edu.ujcv.exceptions.NotFoundException
-import hn.edu.ujcv.model.Compras
+import hn.edu.ujcv.model.Compra
 import org.springframework.beans.factory.annotation.Autowired
 import java.util.*
 
-class compraBusiness:IcompraBusiness {
+class CompraBusiness:ICompraBusiness {
 
     @Autowired
     val compraRepositorio: CompraRepository? = null
 
     @Throws(BusinessExeptions::class)
-    override fun getCompra(): List<Compras> {
+    override fun getCompra(): List<Compra> {
         try {
             return compraRepositorio!!.findAll();
 
@@ -24,8 +24,8 @@ class compraBusiness:IcompraBusiness {
     }
 
     @Throws(BusinessExeptions::class, NotFoundException::class)
-    override fun getCompraById(idCompra: Long): Compras {
-        val opt: Optional<Compras>
+    override fun getCompraById(idCompra: Long): Compra {
+        val opt: Optional<Compra>
         try {
             opt = compraRepositorio!!.findById(idCompra)
         } catch (e: Exception) {
@@ -35,7 +35,7 @@ class compraBusiness:IcompraBusiness {
     }
 
     @Throws(BusinessExeptions::class)
-    override fun saveCompra(compra: Compras): Compras {
+    override fun saveCompra(compra: Compra): Compra {
         try {
             return compraRepositorio!!.save(compra)
         } catch (e: Exception) {
@@ -44,7 +44,7 @@ class compraBusiness:IcompraBusiness {
     }
 
     @Throws(BusinessExeptions::class)
-    override fun saveCompras(compras: List<Compras>): List<Compras> {
+    override fun saveCompras(compras: List<Compra>): List<Compra> {
 
         try {
             return compraRepositorio!!.saveAll(compras)
@@ -56,7 +56,7 @@ class compraBusiness:IcompraBusiness {
 
     @Throws(BusinessExeptions::class, NotFoundException::class)
     override fun removeCompra(idCompra: Long) {
-        val opt: Optional<Compras>
+        val opt: Optional<Compra>
         try {
             opt = compraRepositorio!!.findById(idCompra)
 
@@ -75,8 +75,8 @@ class compraBusiness:IcompraBusiness {
     }
 
     @Throws(BusinessExeptions::class, NotFoundException::class)
-    override fun updateCompra(compra: Compras): Compras {
-        val opt: Optional<Compras>
+    override fun updateCompra(compra: Compra): Compra {
+        val opt: Optional<Compra>
         try {
             opt = compraRepositorio!!.findById(compra.id)
         } catch (e: Exception) {
@@ -87,7 +87,7 @@ class compraBusiness:IcompraBusiness {
         } else {
             try {
 
-                var personaExist = Compras(
+                var personaExist = Compra(
                     compra.cai,
                     compra.proveedores,
                     compra.numerotarjeta,
