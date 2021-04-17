@@ -58,6 +58,7 @@ class EmpleadoRestController  {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
             }
         }
+        @PutMapping("")
          fun update(@RequestBody empleado: Empleado): ResponseEntity<Any> {
             return try {
                 empleadoBusiness!!.updateEmpleado(empleado)
