@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.*
 class CompraRestController {
 
     @RestController
-//@RequestMapping("compras")
+
     @RequestMapping(Constants.URL_BASE_COMPRAS)
     class PersonaRestController {
         @Autowired
-        val compraBusines: ICompraBusiness? = null
+        val compraBusiness: ICompraBusiness? = null
 
         @GetMapping("")
         fun list(): ResponseEntity<List<Compra>> {
             return try {
-                ResponseEntity(compraBusines!!.getCompra(), HttpStatus.OK)
+                ResponseEntity(compraBusiness!!.getCompra(), HttpStatus.OK)
             } catch (e: Exception) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
             }
@@ -32,7 +32,7 @@ class CompraRestController {
         @GetMapping("/id/{id}")
         fun loadBydId(@PathVariable("id") idCompra: Long): ResponseEntity<Compra> {
             return try {
-                ResponseEntity(compraBusines!!.getCompraById(idCompra), HttpStatus.OK)
+                ResponseEntity(compraBusiness!!.getCompraById(idCompra), HttpStatus.OK)
             } catch (e: BusinessExeptions) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
             } catch (e: NotFoundException) {
@@ -43,7 +43,7 @@ class CompraRestController {
         @PostMapping("/addCompra")
         fun insert(@RequestBody compra: Compra): ResponseEntity<Any> {
             return try {
-                compraBusines!!.saveCompra(compra)
+                compraBusiness!!.saveCompra(compra)
                 val responseHeader = HttpHeaders()
                 responseHeader.set("location", Constants.URL_BASE_COMPRAS + "/" + compra.id)
                 ResponseEntity(compra, responseHeader, HttpStatus.CREATED)
@@ -55,7 +55,7 @@ class CompraRestController {
         @PostMapping("/addCompras")
         fun insert(@RequestBody compras: List<Compra>): ResponseEntity<Any> {
             return try {
-                ResponseEntity(compraBusines!!.saveCompras(compras), HttpStatus.CREATED)
+                ResponseEntity(compraBusiness!!.saveCompras(compras), HttpStatus.CREATED)
             } catch (e: BusinessExeptions) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
             }
@@ -64,7 +64,7 @@ class CompraRestController {
         @PutMapping("")
         fun update(@RequestBody compra: Compra): ResponseEntity<Any> {
             return try {
-                compraBusines!!.updateCompra(compra)
+                compraBusiness!!.updateCompra(compra)
                 ResponseEntity(compra, HttpStatus.OK)
             } catch (e: BusinessExeptions) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -76,7 +76,7 @@ class CompraRestController {
         @DeleteMapping("/delete/{id}")
         fun delete(@PathVariable("id") idCompra: Long): ResponseEntity<Any> {
             return try {
-                compraBusines!!.removeCompra(idCompra)
+                compraBusiness!!.removeCompra(idCompra)
                 ResponseEntity(HttpStatus.OK)
             } catch (e: BusinessExeptions) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)

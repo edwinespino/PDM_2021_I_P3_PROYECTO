@@ -5,8 +5,10 @@ import hn.edu.ujcv.exceptions.BusinessExeptions
 import hn.edu.ujcv.exceptions.NotFoundException
 import hn.edu.ujcv.model.Compra
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 import java.util.*
 
+@Service
 class CompraBusiness:ICompraBusiness {
 
     @Autowired
