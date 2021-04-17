@@ -44,7 +44,7 @@ class DepartamentoRestController {
             return try {
                 departamentoBusiness!!.saveDepto(depto)
                 val responseHeader = HttpHeaders()
-                responseHeader.set("location", Constants.URL_BASE_CLIENTES + "/" + depto.id)
+                responseHeader.set("location", Constants.URL_BASE_DEPARTAMENTOS + "/" + depto.id)
                 ResponseEntity(depto,responseHeader, HttpStatus.CREATED)
             }catch (e: BusinessExeptions){
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)

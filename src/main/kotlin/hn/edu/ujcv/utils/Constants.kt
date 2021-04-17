@@ -11,12 +11,12 @@ class Constants {
         const val URL_BASE_PROVEEDORES = "$URL_BASE/proveedores"
         const val URL_BASE_COMPRAS = "$URL_BASE/compras"
         const val URL_BASE_INSUMOS= "$URL_BASE/insumos"
-        const val URL_BASE_DEPARTAMENTOS= "$URL_BASE/departamentos"
+        const val URL_BASE_DEPARTAMENTOS="$URL_BASE/departamentos"
         const val URL_BASE_DETALLEVENTAS= "$URL_BASE/detalleventa"
         const val URL_BASE_FORMASPAGO= "$URL_BASE/formaspago"
         const val URL_BASE_PRODUCCION= "$URL_BASE/produccion"
         const val URL_BASE_VENTAS= "$URL_BASE/ventas"
-
+        const val URL_BASE_DETALLECOMPRAS= "$URL_BASE/detallecompras"
 
 
     }
