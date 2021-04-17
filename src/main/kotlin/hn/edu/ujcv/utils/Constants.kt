@@ -10,6 +10,7 @@ class Constants {
         const val URL_BASE_CLIENTES = "$URL_BASE/clientes"
         const val URL_BASE_PROVEEDORES = "$URL_BASE/proveedores"
         const val URL_BASE_COMPRAS = "$URL_BASE/compras"
+        const val URL_BASE_INSUMOS= "$URL_BASE/insumos"
 
     }
 
