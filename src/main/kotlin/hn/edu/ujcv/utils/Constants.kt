@@ -17,7 +17,7 @@ class Constants {
         const val URL_BASE_PRODUCCION= "$URL_BASE/produccion"
         const val URL_BASE_VENTAS= "$URL_BASE/ventas"
         const val URL_BASE_DETALLECOMPRAS= "$URL_BASE/detallecompras"
-
+        const val URL_BASE_PRODUCTOS= "$URL_BASE/productos"
 
     }
 
