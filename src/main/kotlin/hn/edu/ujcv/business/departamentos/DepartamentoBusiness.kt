@@ -85,7 +85,7 @@ class DepartamentoBusiness:IDepartamentoBusiness {
                 throw BusinessExeptions(e.message)
             }
             if(!opt.isPresent){
-                throw NotFoundException("No se ha encontrado la persona ${deptoid}")
+                throw NotFoundException("No se ha encontrado la persona ${depto.id}")
             }else{
                 try {
 
@@ -100,4 +100,3 @@ class DepartamentoBusiness:IDepartamentoBusiness {
         }
 
     }
-}
