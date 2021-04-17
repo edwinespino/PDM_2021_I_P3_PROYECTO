@@ -16,7 +16,7 @@ class EmpleadoRestController  {
 
     @RestController
 //@RequestMapping("personas")
-    @RequestMapping(Constants.URL_BASE_EMPLEADO)
+    @RequestMapping(Constants.URL_BASE_EMPLEADOS)
     class PersonaRestController {
         @Autowired
         val empleadoBusiness: IEmpleadoBusiness? = null
