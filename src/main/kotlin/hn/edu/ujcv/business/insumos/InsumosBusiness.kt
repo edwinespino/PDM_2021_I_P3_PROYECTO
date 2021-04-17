@@ -3,7 +3,6 @@ package hn.edu.ujcv.business.insumos
 import hn.edu.ujcv.dao.InsumosRepository
 import hn.edu.ujcv.exceptions.BusinessExeptions
 import hn.edu.ujcv.exceptions.NotFoundException
-import hn.edu.ujcv.model.Cliente
 import hn.edu.ujcv.model.Insumos
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
