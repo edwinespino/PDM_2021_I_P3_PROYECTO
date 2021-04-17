@@ -89,7 +89,7 @@ class ClienteBusiness: IClienteBusiness {
         }else{
             try {
 
-                var clienteExist = Cliente(cliente.nombrecompleto,cliente.telefono ,cliente.correo,cliente.direccion,cliente.dni,cliente.rtn)
+                var clienteExist = Cliente(cliente.nombrecompleto,cliente.telefono ,cliente.dni,cliente.rtn,cliente.correo,cliente.direccion)
                 return clientRepository!!.save(cliente)
             }catch (e:Exception){
                 throw BusinessExeptions(e.message)

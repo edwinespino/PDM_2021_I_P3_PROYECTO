@@ -9,7 +9,7 @@ interface IEmpleadoBusiness {
     fun saveEmpleado(empleado: Empleado): Empleado
     fun saveEmpleados(empleados: List<Empleado>):List<Empleado>
     fun removeEmpleado(idPersona: Long)
-    fun getEmpleadoByNombre(nombrePersona: String):Empleado
+    /*fun getEmpleadoByNombre(nombrePersona: String):Empleado*/
     fun updateEmpleado(empleado: Empleado):Empleado
 
 

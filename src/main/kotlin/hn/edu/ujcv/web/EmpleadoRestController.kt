@@ -38,16 +38,6 @@ class EmpleadoRestController  {
                 ResponseEntity(HttpStatus.NOT_FOUND)
             }
         }
-        @GetMapping("/nombre/{nombre}")
-        fun loadByNombre(@PathVariable("nombre") nombrePersona:String): ResponseEntity<Empleado> {
-            return try {
-                ResponseEntity(empleadoBusiness!!.getEmpleadoByNombre(nombrePersona), HttpStatus.OK)
-            }catch (e:BusinessExeptions){
-                ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
-            }catch (e:NotFoundException){
-                ResponseEntity(HttpStatus.NOT_FOUND)
-            }
-        }
         @PostMapping("/addEmpleado")
         fun insert(@RequestBody empleado: Empleado): ResponseEntity<Any> {
             return try {

@@ -10,16 +10,16 @@ import java.util.*
 
 
 @Service
-class EmpleadoBusiness: IEmpleadoBusiness {
+ class EmpleadoBusiness: IEmpleadoBusiness {
     @Autowired
-    val empleadoRepository: EmpleadoRepository?=null
+    val empleadoRepository: EmpleadoRepository? = null
 
     @Throws(BusinessExeptions::class)
     override fun getEmpleado(): List<Empleado> {
         try {
             return empleadoRepository!!.findAll();
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw BusinessExeptions(e.message)
 
         }
@@ -30,7 +30,7 @@ class EmpleadoBusiness: IEmpleadoBusiness {
         val opt: Optional<Empleado>
         try {
             opt = empleadoRepository!!.findById(idPersona)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw BusinessExeptions(e.message)
         }
         return opt.get()
@@ -40,7 +40,7 @@ class EmpleadoBusiness: IEmpleadoBusiness {
     override fun saveEmpleado(empleado: Empleado): Empleado {
         try {
             return empleadoRepository!!.save(empleado)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw BusinessExeptions(e.message)
         }
     }
@@ -51,26 +51,26 @@ class EmpleadoBusiness: IEmpleadoBusiness {
         try {
             return empleadoRepository!!.saveAll(empleados)
 
-        }catch (e:Exception){
-         throw   BusinessExeptions(e.message)
+        } catch (e: Exception) {
+            throw   BusinessExeptions(e.message)
         }
     }
 
     @Throws(BusinessExeptions::class, NotFoundException::class)
     override fun removeEmpleado(idPersona: Long) {
-        val opt:Optional<Empleado>
+        val opt: Optional<Empleado>
         try {
             opt = empleadoRepository!!.findById(idPersona)
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw BusinessExeptions(e.message)
         }
-        if(!opt.isPresent){
+        if (!opt.isPresent) {
             throw NotFoundException("No se ha encontrado la persona con el id +$idPersona")
-        }else{
+        } else {
             try {
                 empleadoRepository!!.deleteById(idPersona)
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 throw BusinessExeptions(e.message)
             }
         }
@@ -78,20 +78,26 @@ class EmpleadoBusiness: IEmpleadoBusiness {
 
     @Throws(BusinessExeptions::class, NotFoundException::class)
     override fun updateEmpleado(empleado: Empleado): Empleado {
-        val opt:Optional<Empleado>
+        val opt: Optional<Empleado>
         try {
             opt = empleadoRepository!!.findById(empleado.id)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw BusinessExeptions(e.message)
         }
-        if(!opt.isPresent){
+        if (!opt.isPresent) {
             throw NotFoundException("No se ha encontrado la persona ${empleado.id}")
-        }else{
+        } else {
             try {
 
-                var personaExist = Empleado(empleado.nombre,empleado.apellido, empleado.telefono,empleado.correo,empleado.cargo,empleado.clave)
+                var personaExist = Empleado(
+                    empleado.nombrecompleto,
+                    empleado.telefono,
+                    empleado.correo,
+                    empleado.clave,
+                    empleado.cargo
+                )
                 return empleadoRepository!!.save(empleado)
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 throw BusinessExeptions(e.message)
             }
 
@@ -99,7 +105,7 @@ class EmpleadoBusiness: IEmpleadoBusiness {
         return opt.get()
     }
 
-    @Throws(BusinessExeptions::class, NotFoundException::class)
+    /*@Throws(BusinessExeptions::class, NotFoundException::class)
     override fun getEmpleadoByNombre(nombrePersona: String): Empleado {
         val opt:Optional<Empleado>
         try {
@@ -112,20 +118,7 @@ class EmpleadoBusiness: IEmpleadoBusiness {
         {
             throw NotFoundException("No se encontro la persona $nombrePersona")
         }
-        return opt.get()
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return opt.get()
+}*/
 
 }
