@@ -52,7 +52,7 @@ class DetalleVentaRestController {
             return try {
                 detallevBusiness!!.saveDetalleV(detallev)
                 val responseHeader = HttpHeaders()
-                responseHeader.set("location", Constants.URL_BASE_COMPRAS + "/" + detallev.id)
+                responseHeader.set("location", Constants.URL_BASE_DETALLEVENTAS + "/" + detallev.id)
                 ResponseEntity(detallev, responseHeader, HttpStatus.CREATED)
             } catch (e: BusinessExeptions) {
                 ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
