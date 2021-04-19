@@ -51,7 +51,7 @@ class DetalleCompraRestController {
             }
         }
 
-        @PostMapping("/addDetalleVentas")
+        @PostMapping("/addDetalleCompras")
         fun insert(@RequestBody detalles: List<DetalleCompra>): ResponseEntity<Any> {
             return try {
                 ResponseEntity(detallecompraBusiness!!.saveDetalleCS(detalles), HttpStatus.CREATED)
